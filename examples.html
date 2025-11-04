@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeWiki | System Examples</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1a1d2e;
+      padding-top: 70px;
+    }
+    .navbar {
+      background-color: #1a1d2e;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .nav-link:hover {
+      color: #6366f1 !important;
+      transition: color 0.3s ease;
+    }
+    .nav-link.active {
+      color: #6366f1 !important;
+    }
+    .btn-signup {
+      border: 2px solid white;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .btn-signup:hover {
+      background-color: white;
+      color: #1a1d2e;
+    }
+    .card {
+      background-color: #2a2d44;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .card-title {
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card-text {
+      color: #d1d5db;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .tech-badge {
+      display: inline-block;
+      background-color: #4f46e5;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      margin: 2px;
+      font-weight: 500;
+    }
+    .difficulty-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0,0,0,0.7);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .difficulty-beginner {
+      background-color: #10b981;
+    }
+    .difficulty-intermediate {
+      background-color: #f59e0b;
+    }
+    .difficulty-advanced {
+      background-color: #ef4444;
+    }
+    .btn-view-details {
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      width: 100%;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn-view-details:hover {
+      background-color: #6366f1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+    }
+    footer {
+      background-color: #1a1d2e;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    header{
+        background-color: #1a1d2e;
+        padding: 60px 0 40px 0;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #d1d5db;
+    }
+    .card-img-wrapper {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg ">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">CodeWiki</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Practices</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Examples</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn-signup" href="#">Sign up</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="text-center text-light">
+    <h1 class="fw-bold">System Application Examples</h1>
+    <p class="text-light">Explore real-world system projects built with various technologies and concepts</p>
+  </header>
+
+  <!-- System Examples -->
+  <div class="container my-5">
+    <div class="row g-4">
+
+      <!-- Example 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500" class="card-img-top" alt="Banking System" style="height: 200px; object-fit: cover;">
+            <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Banking Management System</h5>
+            <p class="card-text flex-grow-1">A system that automates account management, transactions, and reporting for banks. Enhances security, efficiency, and customer experience.</p>
+            <div class="mb-3">
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">SQL</span>
+              <span class="tech-badge">Security</span>
+            </div>
+            <a href="examples/banking-system.html" class="btn-view-details text-decoration-none">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500" class="card-img-top" alt="LMS" style="height: 200px; object-fit: cover;">
+            <span class="difficulty-badge difficulty-advanced">Advanced</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Learning Management System (LMS)</h5>
+            <p class="card-text flex-grow-1">A cloud-based platform for managing university courses, student assessments, and virtual learning with real-time collaboration.</p>
+            <div class="mb-3">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">MongoDB</span>
+              <span class="tech-badge">AWS</span>
+            </div>
+            <button class="btn-view-details">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=500" class="card-img-top" alt="Retail Billing System" style="height: 200px; object-fit: cover;">
+            <span class="difficulty-badge difficulty-beginner">Beginner</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Retail Billing System</h5>
+            <p class="card-text flex-grow-1">A web-based POS system for restaurants and cafes that automates billing, receipt generation, and reporting with inventory tracking.</p>
+            <div class="mb-3">
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">Express</span>
+              <span class="tech-badge">MongoDB</span>
+            </div>
+            <button class="btn-view-details">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500" class="card-img-top" alt="IoT Irrigation System" style="height: 200px; object-fit: cover;">
+            <span class="difficulty-badge difficulty-advanced">Advanced</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">IoT-Based Smart Irrigation System</h5>
+            <p class="card-text flex-grow-1">An automated system for large-scale farming that controls water usage using sensors and cloud analytics for optimal crop management.</p>
+            <div class="mb-3">
+              <span class="tech-badge">Arduino</span>
+              <span class="tech-badge">Raspberry Pi</span>
+              <span class="tech-badge">MQTT</span>
+              <span class="tech-badge">IoT</span>
+            </div>
+            <button class="btn-view-details">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500" class="card-img-top" alt="Hospital Management System" style="height: 200px; object-fit: cover;">
+            <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Hospital Management System</h5>
+            <p class="card-text flex-grow-1">A software solution that integrates patient records, appointment scheduling, and billing modules to streamline hospital operations efficiently.</p>
+            <div class="mb-3">
+              <span class="tech-badge">Django</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">Python</span>
+            </div>
+            <button class="btn-view-details">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 6 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=500" class="card-img-top" alt="Recipe Recommendation System" style="height: 200px; object-fit: cover;">
+            <span class="difficulty-badge difficulty-beginner">Beginner</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Recipe Recommendation App</h5>
+            <p class="card-text flex-grow-1">A mobile app that recommends fast, healthy meals based on dietary preferences and available ingredients with personalized nutrition tracking.</p>
+            <div class="mb-3">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">Mobile</span>
+            </div>
+            <button class="btn-view-details">View Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 CodeWiki. All rights reserved.</p>
+      <p class="mb-0 text-muted" style="font-size: 0.9rem;">Empowering developers to build better systems</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
