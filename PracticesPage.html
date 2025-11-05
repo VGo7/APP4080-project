@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWiki - Best Practices</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+
+        const CodeWiki = () => {
+            const [activeCategory, setActiveCategory] = useState('Clean Code');
+            
+            const categories = ['Clean Code', 'Testing', 'Performance', 'Version Control'];
+            
+            const practices = {
+                'Clean Code': [
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    }
+                ],
+                'Testing': [
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    }
+                ],
+                'Performance': [
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    }
+                ],
+                'Version Control': [
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    },
+                    {
+                        title: 'Lorem Ipsum',
+                        points: [
+                            'Quisque sit amet lectus eget ante suscipit porta a sed odio.',
+                            'Mauris nec lorem in nibh nonummy elementum a eget metus.',
+                            'Cras ultricies, orci commodo maximus lobortis massa urna maximus risus, vitae rutrum mi eros sit amet pede.',
+                            'Nulla facilisi. Donec euismod tempus ligula.'
+                        ]
+                    }
+                ]
+            };
+
+            return (
+                <div className="min-h-screen bg-[#0a0e1a] text-white">
+                    <header className="border-b border-slate-700/50 bg-[#141825]">
+                        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                            <h1 className="text-xl font-bold">CodeWiki</h1>
+                            <nav className="flex items-center gap-6">
+                                <a href="#" className="text-slate-300 hover:text-white transition text-sm">Practices</a>
+                                <a href="#" className="text-slate-300 hover:text-white transition text-sm">Examples</a>
+                                <a href="#" className="text-slate-300 hover:text-white transition text-sm">Login</a>
+                                <button className="px-4 py-1.5 border border-slate-600 rounded text-sm hover:bg-slate-800 transition">
+                                    Sign up
+                                </button>
+                            </nav>
+                        </div>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto px-6 py-12">
+                        <div className="text-center mb-10">
+                            <h2 className="text-3xl font-bold mb-3">Coding Best Practices</h2>
+                            <p className="text-slate-400">
+                                Explore essential practices organized by category to improve your code quality
+                            </p>
+                        </div>
+
+                        <div className="flex justify-center gap-2 mb-10">
+                            {categories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => setActiveCategory(category)}
+                                    className={`px-5 py-2 text-sm transition ${
+                                        activeCategory === category
+                                            ? 'text-white border-b-2 border-white'
+                                            : 'text-slate-500 hover:text-slate-300'
+                                    }`}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {practices[activeCategory].map((practice, idx) => (
+                                <div
+                                    key={idx}
+                                    className="bg-[#1a1f33] rounded-lg p-6"
+                                >
+                                    <h3 className="text-lg font-semibold mb-4">{practice.title}</h3>
+                                    <ul className="space-y-2.5">
+                                        {practice.points.map((point, pointIdx) => (
+                                            <li key={pointIdx} className="flex items-start gap-2 text-sm text-slate-300 leading-relaxed">
+                                                <span className="text-slate-500 mt-1 text-xs">•</span>
+                                                <span>{point}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<CodeWiki />);
+    </script>
+</body>
+</html>
