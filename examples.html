@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeWiki | Code Examples</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #181a2a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: #1a1d2e;
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .navbar-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+      color: #6366f1;
+    }
+
+    .btn-signup {
+      border: 2px solid white;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-signup:hover {
+      background-color: white;
+      color: #1a1d2e;
+    }
+
+    .main-content {
+      margin-top: 80px;
+      padding: 3rem 2rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: #b0b3c1;
+    }
+
+    .example-section {
+      max-width: 1400px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .section-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: #b0b3c1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .comparison-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .practice-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .practice-header {
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .bad-practice .practice-header {
+      background-color: #5d3a3a;
+      color: #ffffff;
+    }
+
+    .good-practice .practice-header {
+      background-color: #3d3f5d;
+      color: #ffffff;
+    }
+
+    .practice-content {
+      padding: 2rem 1.5rem;
+      min-height: 300px;
+    }
+
+    .bad-practice .practice-content {
+      background-color: #2d2f4d;
+    }
+
+    .good-practice .practice-content {
+      background-color: #2d2f4d;
+    }
+
+    .practice-content pre {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .practice-content code {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    .practice-content p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .difficulty-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .difficulty-beginner {
+      background-color: #10b981;
+      color: #ffffff;
+    }
+
+    .difficulty-intermediate {
+      background-color: #f59e0b;
+      color: #ffffff;
+    }
+
+    .difficulty-advanced {
+      background-color: #ef4444;
+      color: #ffffff;
+    }
+
+    @media (max-width: 968px) {
+      .comparison-container {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar-menu {
+        gap: 1rem;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .main-content {
+        padding: 2rem 1rem;
+      }
+
+      .navbar-menu {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">CodeWiki</a>
+    <ul class="navbar-menu">
+      <li><a href="#">Practices</a></li>
+      <li><a href="#">Examples</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#" class="btn-signup">Sign up</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Code Examples</h1>
+      <p>See real examples comparing bad practices with better alternatives</p>
+    </div>
+
+    <section class="example-section">
+      <div class="section-title">
+        <h2>What is Good Variable Naming?</h2>
+        <p>Variable names should be descriptive and meaningful, making code self-documenting. Avoid single letters or vague abbreviations that make code harder to understand and maintain.</p>
+        <span class="difficulty-badge difficulty-beginner">Beginner</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Poor variable naming
+let x = 5;
+let y = 10;
+let z = x + y;
+
+function calc(a, b) {
+  return a * b;
+}
+
+let data = calc(x, y);</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Descriptive variable naming
+let width = 5;
+let height = 10;
+let area = width + height;
+
+function calculateRectangleArea(width, height) {
+  return width * height;
+}
+
+let rectangleArea = calculateRectangleArea(width, height);</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="example-section">
+      <div class="section-title">
+        <h2>How Should Functions Be Structured?</h2>
+        <p>Functions should follow the Single Responsibility Principle, doing one thing well. They should be small, focused, and have clear, descriptive names that explain their purpose.</p>
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Function doing too many things
+function processUser(user) {
+  // Validate
+  if (!user.email) return false;
+  
+  // Transform
+  user.email = user.email.toLowerCase();
+  
+  // Save to database
+  db.save(user);
+  
+  // Send email
+  emailService.send(user.email);
+  
+  // Log
+  console.log('User processed');
+  
+  return true;
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Separate concerns into focused functions
+function validateUser(user) {
+  return user.email !== undefined;
+}
+
+function normalizeEmail(email) {
+  return email.toLowerCase();
+}
+
+function saveUser(user) {
+  return db.save(user);
+}
+
+function sendWelcomeEmail(email) {
+  return emailService.send(email);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="example-section">
+      <div class="section-title">
+        <h2>What is Proper Error Handling?</h2>
+        <p>Error handling should be specific and informative. Catch specific exceptions, provide meaningful error messages, and handle errors gracefully rather than silently failing or crashing.</p>
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Generic error handling
+try {
+  let data = JSON.parse(response);
+  processData(data);
+  saveToDatabase(data);
+} catch (e) {
+  console.log('Error');
+}
+
+// Silent failure
+function getUserData(id) {
+  try {
+    return api.getUser(id);
+  } catch {
+    return null;
+  }
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Specific error handling
+try {
+  let data = JSON.parse(response);
+  processData(data);
+  saveToDatabase(data);
+} catch (error) {
+  if (error instanceof SyntaxError) {
+    console.error('Invalid JSON:', error.message);
+  } else if (error instanceof DatabaseError) {
+    console.error('Database error:', error.message);
+  } else {
+    throw error;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="example-section">
+      <div class="section-title">
+        <h2>How Should Code Be Commented?</h2>
+        <p>Comments should explain why, not what. The code itself should be clear enough to show what it does. Use comments to explain complex logic, business rules, or non-obvious decisions.</p>
+        <span class="difficulty-badge difficulty-beginner">Beginner</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Redundant comments
+// Add 1 to counter
+counter = counter + 1;
+
+// Loop through array
+for (let i = 0; i < arr.length; i++) {
+  // Print element
+  console.log(arr[i]);
+}
+
+// Check if x equals 5
+if (x == 5) {
+  // Do something
+  doSomething();
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Meaningful comments explaining why
+// Increment counter for rate limiting
+// API allows max 100 requests per minute
+counter++;
+
+// Using for loop instead of forEach
+// for better performance with large datasets
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+
+// Magic number from legacy API specification
+if (statusCode === 5) {
+  handleLegacyResponse();
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 5: Using Constants (Beginner) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>Why Use Constants?</h2>
+        <p>Constants improve code maintainability by centralizing values that are used throughout your application. They prevent magic numbers and make code more readable.</p>
+        <span class="difficulty-badge difficulty-beginner">Beginner</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Hard-coded values everywhere
+if (user.age >= 18) {
+  allowEntry();
+}
+
+if (discount > 0.5) {
+  rejectDiscount();
+}
+
+setTimeout(checkStatus, 5000);
+
+if (items.length > 100) {
+  showWarning();
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Using named constants
+const MINIMUM_AGE = 18;
+const MAX_DISCOUNT_RATE = 0.5;
+const STATUS_CHECK_INTERVAL = 5000;
+const MAX_ITEMS_PER_PAGE = 100;
+
+if (user.age >= MINIMUM_AGE) {
+  allowEntry();
+}
+
+if (discount > MAX_DISCOUNT_RATE) {
+  rejectDiscount();
+}
+
+setTimeout(checkStatus, STATUS_CHECK_INTERVAL);
+
+if (items.length > MAX_ITEMS_PER_PAGE) {
+  showWarning();
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 6: Async/Await vs Callbacks (Intermediate) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>How to Handle Asynchronous Code?</h2>
+        <p>Modern JavaScript provides async/await syntax that makes asynchronous code more readable and easier to maintain than nested callbacks or promise chains.</p>
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Callback hell
+function getUserData(userId) {
+  fetchUser(userId, function(error, user) {
+    if (error) {
+      console.log(error);
+    } else {
+      fetchPosts(user.id, function(error, posts) {
+        if (error) {
+          console.log(error);
+        } else {
+          fetchComments(posts[0].id, function(error, comments) {
+            if (error) {
+              console.log(error);
+            } else {
+              displayData(user, posts, comments);
+            }
+          });
+        }
+      });
+    }
+  });
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Clean async/await
+async function getUserData(userId) {
+  try {
+    const user = await fetchUser(userId);
+    const posts = await fetchPosts(user.id);
+    const comments = await fetchComments(posts[0].id);
+    
+    displayData(user, posts, comments);
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 7: Array Methods (Beginner) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>What Are Modern Array Methods?</h2>
+        <p>JavaScript provides powerful built-in array methods that make code more declarative and easier to read compared to traditional loops.</p>
+        <span class="difficulty-badge difficulty-beginner">Beginner</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Using traditional loops
+let activeUsers = [];
+for (let i = 0; i < users.length; i++) {
+  if (users[i].active) {
+    activeUsers.push(users[i]);
+  }
+}
+
+let userNames = [];
+for (let i = 0; i < activeUsers.length; i++) {
+  userNames.push(activeUsers[i].name);
+}
+
+let total = 0;
+for (let i = 0; i < prices.length; i++) {
+  total += prices[i];
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Using modern array methods
+const activeUsers = users.filter(user => user.active);
+
+const userNames = activeUsers.map(user => user.name);
+
+const total = prices.reduce((sum, price) => sum + price, 0);
+
+// Or chain them together
+const activeUserNames = users
+  .filter(user => user.active)
+  .map(user => user.name);</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 8: Design Patterns (Advanced) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>Why Use Design Patterns?</h2>
+        <p>Design patterns provide tested solutions to common problems. The Strategy pattern, for example, allows you to define a family of algorithms and make them interchangeable.</p>
+        <span class="difficulty-badge difficulty-advanced">Advanced</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Hardcoded logic with many conditionals
+function calculateShipping(order, method) {
+  let cost = 0;
+  
+  if (method === 'standard') {
+    cost = order.weight * 0.5;
+    if (order.total > 50) cost = 0;
+  } else if (method === 'express') {
+    cost = order.weight * 1.5 + 10;
+    if (order.total > 100) cost *= 0.8;
+  } else if (method === 'overnight') {
+    cost = order.weight * 3 + 20;
+  } else if (method === 'international') {
+    cost = order.weight * 5 + 30;
+    if (order.destination === 'Canada') cost *= 0.9;
+  }
+  
+  return cost;
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Strategy Pattern
+class StandardShipping {
+  calculate(order) {
+    const cost = order.weight * 0.5;
+    return order.total > 50 ? 0 : cost;
+  }
+}
+
+class ExpressShipping {
+  calculate(order) {
+    let cost = order.weight * 1.5 + 10;
+    return order.total > 100 ? cost * 0.8 : cost;
+  }
+}
+
+class ShippingCalculator {
+  constructor(strategy) {
+    this.strategy = strategy;
+  }
+  
+  calculate(order) {
+    return this.strategy.calculate(order);
+  }
+}
+
+// Usage
+const calculator = new ShippingCalculator(new ExpressShipping());
+const cost = calculator.calculate(order);</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 9: Object Destructuring (Intermediate) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>What is Object Destructuring?</h2>
+        <p>Destructuring allows you to extract properties from objects and arrays into distinct variables, making code cleaner and more readable.</p>
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Repetitive property access
+function displayUser(user) {
+  console.log(user.name);
+  console.log(user.email);
+  console.log(user.age);
+  
+  const street = user.address.street;
+  const city = user.address.city;
+  const country = user.address.country;
+  
+  return user.name + ' from ' + city;
+}
+
+function createUser(config) {
+  const name = config.name;
+  const email = config.email;
+  const role = config.role || 'user';
+  const active = config.active !== undefined ? config.active : true;
+  
+  return { name, email, role, active };
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Using destructuring
+function displayUser(user) {
+  const { name, email, age, address } = user;
+  const { street, city, country } = address;
+  
+  console.log(name);
+  console.log(email);
+  console.log(age);
+  
+  return `${name} from ${city}`;
+}
+
+function createUser({ name, email, role = 'user', active = true }) {
+  return { name, email, role, active };
+}
+
+// Also works with arrays
+const [first, second, ...rest] = numbers;
+const [, , third] = items; // Skip first two</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 10: Null Checking (Beginner) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>How to Handle Null and Undefined Values?</h2>
+        <p>Modern JavaScript provides safer ways to handle null and undefined values using optional chaining and nullish coalescing operators.</p>
+        <span class="difficulty-badge difficulty-beginner">Beginner</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Verbose null checking
+let userName;
+if (user && user.profile && user.profile.name) {
+  userName = user.profile.name;
+} else {
+  userName = 'Guest';
+}
+
+let count;
+if (data.count !== null && data.count !== undefined) {
+  count = data.count;
+} else {
+  count = 0;
+}
+
+// Checking before method call
+let upperName;
+if (user && user.getName) {
+  upperName = user.getName().toUpperCase();
+}</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Optional chaining and nullish coalescing
+const userName = user?.profile?.name ?? 'Guest';
+
+const count = data.count ?? 0;
+
+// Safe method call
+const upperName = user?.getName()?.toUpperCase();
+
+// With default values
+const settings = {
+  theme: config?.theme ?? 'light',
+  notifications: config?.notifications ?? true,
+  language: config?.language ?? 'en'
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 11: Memory Leaks (Advanced) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>How to Prevent Memory Leaks?</h2>
+        <p>Memory leaks occur when references to objects are maintained unnecessarily. Proper cleanup of event listeners, timers, and subscriptions is crucial.</p>
+        <span class="difficulty-badge difficulty-advanced">Advanced</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// Memory leaks from uncleaned resources
+class DataFetcher {
+  constructor() {
+    this.timer = setInterval(() => {
+      this.fetchData();
+    }, 5000);
+    
+    document.addEventListener('click', this.handleClick);
+    
+    this.cache = [];
+  }
+  
+  handleClick() {
+    // 'this' context lost
+    console.log(this.cache);
+  }
+  
+  fetchData() {
+    fetch('/api/data')
+      .then(res => res.json())
+      .then(data => {
+        this.cache.push(data); // Unbounded growth
+      });
+  }
+}
+
+// No cleanup when done!</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Proper resource management
+class DataFetcher {
+  constructor() {
+    this.timer = setInterval(() => {
+      this.fetchData();
+    }, 5000);
+    
+    this.handleClick = this.handleClick.bind(this);
+    document.addEventListener('click', this.handleClick);
+    
+    this.cache = new Map();
+    this.maxCacheSize = 100;
+  }
+  
+  handleClick() {
+    console.log(this.cache);
+  }
+  
+  fetchData() {
+    fetch('/api/data')
+      .then(res => res.json())
+      .then(data => {
+        if (this.cache.size >= this.maxCacheSize) {
+          const firstKey = this.cache.keys().next().value;
+          this.cache.delete(firstKey);
+        }
+        this.cache.set(data.id, data);
+      });
+  }
+  
+  destroy() {
+    clearInterval(this.timer);
+    document.removeEventListener('click', this.handleClick);
+    this.cache.clear();
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example 12: Template Literals (Beginner) -->
+    <section class="example-section">
+      <div class="section-title">
+        <h2>Why Use Template Literals?</h2>
+        <p>Template literals provide a cleaner syntax for string interpolation and multi-line strings compared to string concatenation.</p>
+        <span class="difficulty-badge difficulty-beginner">Beginner</span>
+      </div>
+      <div class="comparison-container">
+        <div class="practice-card bad-practice">
+          <div class="practice-header">Bad Practice</div>
+          <div class="practice-content">
+            <pre><code>// String concatenation
+const greeting = 'Hello, ' + user.name + '!';
+
+const message = 'You have ' + unreadCount + ' unread messages.';
+
+const url = baseUrl + '/api/' + version + '/users/' + userId;
+
+const html = '<div class="card">' +
+  '<h2>' + title + '</h2>' +
+  '<p>' + description + '</p>' +
+  '</div>';
+
+const multiLine = 'This is line one.\n' +
+  'This is line two.\n' +
+  'This is line three.';</code></pre>
+          </div>
+        </div>
+        <div class="practice-card good-practice">
+          <div class="practice-header">Good Practice</div>
+          <div class="practice-content">
+            <pre><code>// Template literals
+const greeting = `Hello, ${user.name}!`;
+
+const message = `You have ${unreadCount} unread messages.`;
+
+const url = `${baseUrl}/api/${version}/users/${userId}`;
+
+const html = `
+  <div class="card">
+    <h2>${title}</h2>
+    <p>${description}</p>
+  </div>
+`;
+
+const multiLine = `
+  This is line one.
+  This is line two.
+  This is line three.
+`;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
