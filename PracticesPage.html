@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Wiki - Best Practices</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const CodeWiki = () => {
+      const [activeCategory, setActiveCategory] = useState("Clean Code");
+
+      const categories = [
+        "Clean Code",
+        "Testing",
+        "Version Control",
+        "Collaboration & Documentation",
+      ];
+
+      const practices = {
+        "Clean Code": [
+      {
+        title: "Clean Code Principles",
+        points: [
+          "Write simple, readable, and maintainable code.",
+          "Follow DRY (Don't Repeat Yourself) and KISS (Keep It Simple) principles.",
+          "Use descriptive names for variables and functions.",
+          "Keep functions small and focused on one responsibility.",
+        ],
+        difficulty: "Beginner",
+      },
+      {
+        title: "Code Structure & Formatting",
+        points: [
+          "Follow consistent indentation and spacing rules.",
+          "Use linters like ESLint or Prettier to enforce style.",
+          "Group related code logically within files and folders.",
+          "Avoid deeply nested structures — refactor when necessary.",
+        ],
+        difficulty: "Beginner",
+      },
+      {
+        title: "Refactoring Techniques",
+        points: [
+          "Refactor regularly to improve code without changing behavior.",
+          "Extract repeated logic into reusable functions.",
+          "Use meaningful commit messages when refactoring.",
+          "Run tests before and after refactoring to ensure stability.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Error Handling & Readability",
+        points: [
+          "Handle exceptions gracefully with clear messages.",
+          "Avoid silent failures — log errors meaningfully.",
+          "Use guard clauses to reduce nesting.",
+          "Write code that clearly expresses intent without excessive comments.",
+        ],
+        difficulty: "Intermediate",
+      },
+    ],
+
+    "Testing": [
+      {
+        title: "Testing Fundamentals",
+        points: [
+          "Understand the purpose of unit, integration, and system tests.",
+          "Write tests that validate small, isolated pieces of functionality.",
+          "Use test frameworks like Jest, Mocha, or PyTest.",
+          "Automate test execution during builds or commits.",
+        ],
+        difficulty: "Beginner",
+      },
+      {
+        title: "Test-Driven Development (TDD)",
+        points: [
+          "Write a test before writing the corresponding code.",
+          "Refactor only after tests pass.",
+          "Keep tests simple and focused on expected outcomes.",
+          "Use TDD to improve confidence in refactoring and changes.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Debugging Strategies",
+        points: [
+          "Use console logs or breakpoints to trace execution flow.",
+          "Isolate issues by testing smaller components first.",
+          "Replicate bugs consistently to identify root causes.",
+          "Document common issues and their solutions.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Continuous Testing",
+        points: [
+          "Integrate testing into CI/CD pipelines.",
+          "Run automated tests on every pull request.",
+          "Measure code coverage to identify weak spots.",
+          "Balance between automated and manual testing efforts.",
+        ],
+        difficulty: "Advanced",
+      },
+    ],
+
+    "Version Control": [
+      {
+        title: "Version Control Basics",
+        points: [
+          "Initialize repositories using Git for all projects.",
+          "Track changes using commits and branches.",
+          "Understand local vs remote repositories.",
+          "Pull regularly to stay up-to-date with teammates’ work.",
+        ],
+        difficulty: "Beginner",
+      },
+      {
+        title: "Branching Strategies",
+        points: [
+          "Use branches for new features or bug fixes.",
+          "Adopt workflows like Git Flow or GitHub Flow.",
+          "Merge branches only after peer review.",
+          "Delete merged branches to keep the repository clean.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Commit Best Practices",
+        points: [
+          "Write clear, descriptive commit messages.",
+          "Commit frequently with small, focused changes.",
+          "Avoid committing sensitive data or secrets.",
+          "Use interactive rebase to clean up commit history.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Collaboration with Git",
+        points: [
+          "Use Pull Requests (PRs) to propose changes.",
+          "Review PRs carefully for quality and consistency.",
+          "Handle merge conflicts patiently and transparently.",
+          "Tag versions or releases for easy rollback.",
+        ],
+        difficulty: "Advanced",
+      },
+    ],
+
+    "Collaboration & Documentation": [
+      {
+        title: "Documentation Best Practices",
+        points: [
+          "Maintain an updated README with project setup instructions.",
+          "Explain APIs, dependencies, and environment variables.",
+          "Use consistent formatting and markdown standards.",
+          "Update documentation whenever major changes occur.",
+        ],
+        difficulty: "Beginner",
+      },
+      {
+        title: "Team Communication",
+        points: [
+          "Use channels like Slack or Teams for quick discussions.",
+          "Schedule regular syncs or standups to align progress.",
+          "Encourage open feedback on design and implementation.",
+          "Keep all project-related communication transparent.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Collaboration Workflows",
+        points: [
+          "Use GitHub Issues, Projects, or Jira for task tracking.",
+          "Assign tasks based on strengths and availability.",
+          "Review code collaboratively before merging.",
+          "Encourage pair programming for complex features.",
+        ],
+        difficulty: "Intermediate",
+      },
+      {
+        title: "Knowledge Sharing",
+        points: [
+          "Document lessons learned and best practices in a wiki.",
+          "Host internal demos to showcase new tools or approaches.",
+          "Encourage mentorship among team members.",
+          "Promote consistent onboarding for new developers.",
+        ],
+        difficulty: "Advanced",
+      },
+    ],
+      };
+
+      return (
+        <div className="min-h-screen bg-[#0a0e1a] text-white">
+          {/* Header */}
+          <header className="border-b border-slate-700/50 bg-[#141825]">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+              <h1 className="text-xl font-bold">Coding Wiki</h1>
+              <nav className="flex items-center gap-6">
+                <a href="#" className="text-slate-300 hover:text-white transition text-sm">Practices</a>
+                <a href="#" className="text-slate-300 hover:text-white transition text-sm">Examples</a>
+                <a href="#" className="text-slate-300 hover:text-white transition text-sm">Login</a>
+                <button className="px-4 py-1.5 border border-slate-600 rounded text-sm hover:bg-slate-800 transition">
+                  Sign up
+                </button>
+              </nav>
+            </div>
+          </header>
+
+          {/* Main Section */}
+          <main className="max-w-7xl mx-auto px-6 py-12">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold mb-3">Coding Best Practices</h2>
+              <p className="text-slate-400 max-w-3xl mx-auto">
+                <strong>Coding Wiki</strong> is a collaborative platform where developers can log in to save articles, share coding practices, and explore examples. Below are collections of proven programming principles to help you write clean, efficient, and maintainable code.
+              </p>
+            </div>
+
+            {/* Category Tabs */}
+            <div className="flex justify-center gap-2 mb-10 flex-wrap">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-5 py-2 text-sm transition ${
+                    activeCategory === category
+                      ? "text-white border-b-2 border-white"
+                      : "text-slate-500 hover:text-slate-300"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
+            {/* Practices Display */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {practices[activeCategory].map((practice, idx) => (
+                <div key={idx} className="bg-[#1a1f33] rounded-lg p-6 shadow-md">
+                  <h3 className="text-lg font-semibold mb-2">{practice.title}</h3>
+                  <ul className="space-y-2.5 mb-3">
+                    {practice.points.map((point, pointIdx) => (
+                      <li key={pointIdx} className="flex items-start gap-2 text-sm text-slate-300 leading-relaxed">
+                        <span className="text-slate-500 mt-1 text-xs">•</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-200">
+                    Difficulty: {practice.difficulty}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </main>
+
+          {/* Footer */}
+          <footer className="text-center text-slate-500 py-6 border-t border-slate-800 mt-12 text-sm">
+            © 2025 Coding Wiki — Built for Developers, by Developers
+          </footer>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<CodeWiki />);
+  </script>
+</body>
+</html>
